@@ -1,30 +1,13 @@
-n = int(input())
-arr = list(map(int, input().split()))
-
-left = 0
-right = n - 1
-
-last = 1000000
-possible = True
-
-while left <= right:
-    
-    if arr[left] >= arr[right]:
-        pick = arr[left]
-        left += 1
-        right -= 1
-    else:
-        pick = arr[right]
-        left += 1
-        right -= 1
-
-    if pick <= last:
-        last = pick
-    else:
-        possible = False
-        break
-
-if possible:
-    print("Yes")
+leap = False
+year = int(input("Enter a year: "))
+if year % 4 == 0:
+    leap = True
+    if year % 100 == 0:
+        leap = False
+        if year % 400 == 0:
+            leap = True
+        
 else:
-    print("No")
+    leap = False
+
+print(leap)
